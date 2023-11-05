@@ -1,13 +1,14 @@
 import Produkty.*;
+import Sortowania.SortujPrzezIloscSztuk;
+import Sortowania.SortujPrzezNazwe;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner skaner = new Scanner(System.in);
-        boolean program = true;
 
         // Utworzenie obiektów i dodanie ich do listy.
 
@@ -93,22 +94,99 @@ public class Main {
 
         // Działanie programu
 
+        Scanner skaner = new Scanner(System.in);
+        boolean program = true;
+
         while(program){
-            int wybor = skaner.nextInt();
-            switch(wybor){
+
+            System.out.println("Wybierz opcje:");
+            System.out.println("1 - wyświetl listę produktów");
+            System.out.println("2 - wyszukaj dany produkt");
+            System.out.println("3 - sortuj listę");
+            System.out.println("4 - dodaj produkt");
+            System.out.println("5 - usuń produkt");
+
+            int wyborOpcji = skaner.nextInt();
+
+            switch(wyborOpcji){
                 case 1:
-                    System.out.println("jeden");
+                    System.out.println("Wybierz kategorię listy:");
+                    System.out.println("1 - ogólna");
+                    System.out.println("2 - przekąski");
+                    System.out.println("3 - napoje");
+                    System.out.println("4 - artykuły biurowe");
+                    System.out.println("5 - inne");
+                    System.out.println("6 - powrót do menu");
+                    int wyborKategorii = skaner.nextInt();
+                    switch(wyborKategorii){
+                        case 1:
+                            System.out.println("Lista produktów: ");
+                            Produkt.wyswietlListeProduktow(listaProduktow);
+                            break;
+
+                        case 2:
+                            System.out.println("Lista przekąsek: ");
+                            Produkt.wyswietlListePrzekasek(listaProduktow);
+                            break;
+
+                        case 3:
+                            System.out.println("Lista napoi: ");
+                            Produkt.wyswietlListeNapoi(listaProduktow);
+                            break;
+
+                        case 4:
+                            System.out.println("Lista artykułów: ");
+                            Produkt.wyswietlListeArtykulow(listaProduktow);
+                            break;
+
+                        case 5:
+                            System.out.println("Lista inne: ");
+                            Produkt.wyswietlListeInne(listaProduktow);
+                            break;
+
+                        case 6:
+                            break;
+
+                        default:
+                            System.out.println("Błąd - brak takiej opcji.");
+                            break;
+                    }
                     break;
 
                 case 2:
-                    System.out.println("dwa");
+                    skaner.nextLine();
+                    String wyszukiwanyProdukt = skaner.nextLine();
+                    Produkt.wyszukajProduktPoNazwie(listaProduktow, wyszukiwanyProdukt);
                     break;
 
                 case 3:
+                    System.out.println("Wybierz sortowanie:");
+                    System.out.println("1 - po nazwie");
+                    System.out.println("2 - po liczbie sztuk");
+                    int wyborSortowania = skaner.nextInt();
+                    switch(wyborSortowania) {
+                        case 1:
+                            System.out.println("Posortowano po nazwie.");
+                            SortujPrzezNazwe sortowaniePoNazwie = new SortujPrzezNazwe();
+                            Collections.sort(listaProduktow, sortowaniePoNazwie);
+                            for (Produkt produkt : listaProduktow) {
+                                System.out.println(produkt.wypiszSzczegoly());
+                            }
+
+                        case 2:
+                            System.out.println("Posortowano po liczbie sztuk.");
+                            SortujPrzezIloscSztuk sortowaniePoIlosciSztuk = new SortujPrzezIloscSztuk();
+                            Collections.sort(listaProduktow, sortowaniePoIlosciSztuk);
+                            for (Produkt produkt : listaProduktow) {
+                                System.out.println(produkt.wypiszSzczegoly());
+                            }
+                    }
+
+                case 4:
                     program = true;
                     break;
 
-                case 4:
+                case 5:
                     System.out.println("koniec");
                     program = false;
                     break;

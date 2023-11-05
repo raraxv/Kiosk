@@ -6,8 +6,8 @@ public class ArtykulyBiurowe extends Produkt {
     private String kolor;
 
     @Override
-    public void wypiszSzczegoly() {
-        System.out.println(getNazwa() + ", cena: " + getCena());
+    public String wypiszSzczegoly() {
+        return getNazwa() + ", cena: " + getCena() + ", ilość sztuk: " + getLiczbaSztuk();
     }
 
     public ArtykulyBiurowe(String nazwa, double cena, int liczbaSztuk, int liczbaStron, String wielkosc) {

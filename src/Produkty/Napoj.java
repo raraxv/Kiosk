@@ -5,8 +5,8 @@ public class Napoj extends Produkt{
     private boolean czyGazowany;
 
     @Override
-    public void wypiszSzczegoly() {
-        System.out.println(getNazwa() + ", cena: " + getCena() + ", wielkość: " + wielkoscLitrow);
+    public String wypiszSzczegoly() {
+        return getNazwa() + ", cena: " + getCena() + ", ilość sztuk: " + getLiczbaSztuk();
     }
 
     public Napoj(String nazwa, double cena, int liczbaSztuk, double wielkoscLitrow, boolean czyGazowany) {

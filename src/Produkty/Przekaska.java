@@ -1,13 +1,11 @@
 package Produkty;
 
-import Produkty.Produkt;
-
 public class Przekaska extends Produkt {
     private double waga;
 
     @Override
-    public void wypiszSzczegoly() {
-        System.out.println(getNazwa() + ", cena: " + getCena() + ", waga: " + waga);
+    public String wypiszSzczegoly() {
+        return getNazwa() + ", cena: " + getCena() + ", ilość sztuk: " + getLiczbaSztuk();
     }
 
     public Przekaska(String nazwa, double cena, int liczbaSztuk, double waga) {

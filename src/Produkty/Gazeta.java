@@ -4,8 +4,8 @@ public class Gazeta extends Produkt {
     private String kategoria;
 
     @Override
-    public void wypiszSzczegoly() {
-        System.out.println(getNazwa() + ", cena: " + getCena() + ", kategoria: " + kategoria);
+    public String wypiszSzczegoly() {
+        return getNazwa() + ", cena: " + getCena() + ", ilość sztuk: " + getLiczbaSztuk();
     }
 
     public Gazeta(String nazwa, double cena, int liczbaSztuk, String kategoria) {
