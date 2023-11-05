@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner skaner = new Scanner(System.in);
-        boolean program = true;
 
         // Utworzenie obiektów i dodanie ich do listy.
 
@@ -93,15 +91,26 @@ public class Main {
 
         // Działanie programu
 
+        Scanner skaner = new Scanner(System.in);
+        boolean program = true;
+
         while(program){
+
+            System.out.println("Wybierz opcje:");
+            System.out.println("1 - wyświetl listę produktów");
+            System.out.println("2 - wyszukaj dany produkt");
+
             int wybor = skaner.nextInt();
+
             switch(wybor){
                 case 1:
-                    System.out.println("jeden");
+                    Produkt.wyswietlListeProduktow(listaProduktow);
                     break;
 
                 case 2:
-                    System.out.println("dwa");
+                    skaner.nextLine();
+                    String wyszukiwanyProdukt = skaner.nextLine();
+                    Produkt.wyszukajProduktPoNazwie(listaProduktow, wyszukiwanyProdukt);
                     break;
 
                 case 3:
