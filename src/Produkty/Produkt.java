@@ -54,6 +54,20 @@ public abstract class Produkt {
         }
     }
 
-
+    public static void usunProdukt(List<Produkt> listaProduktow, String nazwaProduktu){
+        boolean czyZnaleziono = false;
+        int index = 0;
+        for (Produkt produkt : listaProduktow) {
+            if (produkt.getNazwa().equals(nazwaProduktu)) {
+                czyZnaleziono = true;
+                listaProduktow.remove(index);
+                System.out.println("Pomyślnie usunięto produkt o nazwie: " + produkt.getNazwa());
+                break;
+            }
+            index++;
+        }
+        if(czyZnaleziono == false){
+            System.out.println("Błąd - brak produktu o takiej nazwie.");
+        }
+    }
 }
-

@@ -105,6 +105,7 @@ public class Main {
             System.out.println("3 - sortuj listę");
             System.out.println("4 - dodaj produkt");
             System.out.println("5 - usuń produkt");
+            System.out.println("6 - zakończ");
 
             int wyborOpcji = skaner.nextInt();
 
@@ -195,10 +196,17 @@ public class Main {
                     break;
 
                 case 5:
-                    System.out.println("koniec");
-                    program = false;
+                    System.out.println("Podaj nazwe produktu, który chcesz usunąć");
+                    skaner.nextLine();
+                    String usuwanyProdukt = skaner.nextLine();
+                    Produkt.usunProdukt(listaProduktow, usuwanyProdukt);
+                    break;
+
+                case 6:
+                    System.out.println("Zamykanie programu");
                     break;
             }
+            break;
         }
     }
 }
