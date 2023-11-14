@@ -1,5 +1,7 @@
 package Produkty;
 
+import java.util.List;
+
 public class ArtykulyBiurowe extends Produkt {
     private int liczbaStron;
     private String rozmiar;
@@ -23,5 +25,15 @@ public class ArtykulyBiurowe extends Produkt {
 
     public ArtykulyBiurowe(String nazwa, double cena, int liczbaSztuk) {
         super(nazwa, cena, liczbaSztuk);
+    }
+
+    public static void wyswietlListeProduktow(List<Produkt> listaProduktow) {
+        int i = 1;
+        for (Produkt produkt : listaProduktow) {
+            if (produkt instanceof ArtykulyBiurowe) {
+                System.out.println(i + ". " + produkt.getNazwa() + ", cena: " + produkt.getCena() + ", ilość: " + produkt.getLiczbaSztuk());
+                i++;
+            }
+        }
     }
 }

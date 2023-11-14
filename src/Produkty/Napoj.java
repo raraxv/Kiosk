@@ -1,5 +1,7 @@
 package Produkty;
 
+import java.util.List;
+
 public class Napoj extends Produkt{
     private double wielkoscLitrow;
     private boolean czyGazowany;
@@ -13,5 +15,15 @@ public class Napoj extends Produkt{
         super(nazwa, cena, liczbaSztuk);
         this.wielkoscLitrow = wielkoscLitrow;
         this.czyGazowany = czyGazowany;
+    }
+
+    public static void wyswietlListeProduktow(List<Produkt> listaProduktow) {
+        int i = 1;
+        for (Produkt produkt : listaProduktow) {
+            if (produkt instanceof Napoj) {
+                System.out.println(i + ". " + produkt.getNazwa() + ", cena: " + produkt.getCena() + ", ilość: " + produkt.getLiczbaSztuk());
+                i++;
+            }
+        }
     }
 }

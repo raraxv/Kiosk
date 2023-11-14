@@ -40,43 +40,6 @@ public abstract class Produkt {
             }
         }
 
-    public static void wyswietlListePrzekasek(List<Produkt> listaProduktow) {
-        int i = 1;
-        for (Produkt produkt : listaProduktow) {
-            if (produkt instanceof Przekaska) {
-                System.out.println(i + ". " + produkt.getNazwa() + ", cena: " + produkt.getCena() + ", ilość: " + produkt.getLiczbaSztuk());
-                i++;
-            }
-        }
-    }
-    public static void wyswietlListeNapoi(List<Produkt> listaProduktow) {
-        int i = 1;
-        for (Produkt produkt : listaProduktow) {
-            if (produkt instanceof Napoj) {
-                System.out.println(i + ". " + produkt.getNazwa() + ", cena: " + produkt.getCena() + ", ilość: " + produkt.getLiczbaSztuk());
-                i++;
-            }
-        }
-    }
-    public static void wyswietlListeArtykulow(List<Produkt> listaProduktow) {
-        int i = 1;
-        for (Produkt produkt : listaProduktow) {
-            if (produkt instanceof ArtykulyBiurowe) {
-                System.out.println(i + ". " + produkt.getNazwa() + ", cena: " + produkt.getCena() + ", ilość: " + produkt.getLiczbaSztuk());
-                i++;
-            }
-        }
-    }
-    public static void wyswietlListeInne(List<Produkt> listaProduktow) {
-        int i = 1;
-        for (Produkt produkt : listaProduktow) {
-            if (produkt instanceof Inne) {
-                System.out.println(i + ". " + produkt.getNazwa() + ", cena: " + produkt.getCena() + ", ilość: " + produkt.getLiczbaSztuk());
-                i++;
-            }
-        }
-    }
-
     public static void wyszukajProduktPoNazwie(List<Produkt> listaProduktow, String nazwaProduktu) {
         boolean czyZnaleziono = false;
         for (Produkt produkt : listaProduktow) {

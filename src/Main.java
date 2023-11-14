@@ -115,8 +115,9 @@ public class Main {
                     System.out.println("2 - przekąski");
                     System.out.println("3 - napoje");
                     System.out.println("4 - artykuły biurowe");
-                    System.out.println("5 - inne");
-                    System.out.println("6 - powrót do menu");
+                    System.out.println("5 - gazety");
+                    System.out.println("6 - inne");
+                    System.out.println("7 - powrót do menu");
                     int wyborKategorii = skaner.nextInt();
                     switch(wyborKategorii){
                         case 1:
@@ -126,25 +127,30 @@ public class Main {
 
                         case 2:
                             System.out.println("Lista przekąsek: ");
-                            Produkt.wyswietlListePrzekasek(listaProduktow);
+                            Przekaska.wyswietlListeProduktow(listaProduktow);
                             break;
 
                         case 3:
                             System.out.println("Lista napoi: ");
-                            Produkt.wyswietlListeNapoi(listaProduktow);
+                            Napoj.wyswietlListeProduktow(listaProduktow);
                             break;
 
                         case 4:
                             System.out.println("Lista artykułów: ");
-                            Produkt.wyswietlListeArtykulow(listaProduktow);
+                            ArtykulyBiurowe.wyswietlListeProduktow(listaProduktow);
                             break;
 
                         case 5:
-                            System.out.println("Lista inne: ");
-                            Produkt.wyswietlListeInne(listaProduktow);
+                            System.out.println("Lista gazet: ");
+                            Gazeta.wyswietlListeProduktow(listaProduktow);
                             break;
 
                         case 6:
+                            System.out.println("Lista inne: ");
+                            Inne.wyswietlListeProduktow(listaProduktow);
+                            break;
+
+                        case 7:
                             break;
 
                         default:
@@ -172,6 +178,7 @@ public class Main {
                             for (Produkt produkt : listaProduktow) {
                                 System.out.println(produkt.wypiszSzczegoly());
                             }
+                            break;
 
                         case 2:
                             System.out.println("Posortowano po liczbie sztuk.");
@@ -180,6 +187,7 @@ public class Main {
                             for (Produkt produkt : listaProduktow) {
                                 System.out.println(produkt.wypiszSzczegoly());
                             }
+                            break;
                     }
 
                 case 4:
