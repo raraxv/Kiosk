@@ -1,5 +1,9 @@
 package Produkty;
 
+import Sortowania.SortujPrzezIloscSztuk;
+import Sortowania.SortujPrzezNazwe;
+
+import java.util.Collections;
 import java.util.List;
 
 public abstract class Produkt {
@@ -8,10 +12,6 @@ public abstract class Produkt {
     private int liczbaSztuk;
 
     public abstract String wypiszSzczegoly();
-
-    private int szukaj() {
-        return 0;
-    }
 
     public Produkt(String nazwa, double cena, int liczbaSztuk) {
         this.nazwa = nazwa;
@@ -31,6 +31,7 @@ public abstract class Produkt {
         return liczbaSztuk;
     }
 
+    // Metody do działania programu
 
     public static void wyswietlListeProduktow(List<Produkt> listaProduktow) {
         int i = 1;
@@ -70,4 +71,87 @@ public abstract class Produkt {
             System.out.println("Błąd - brak produktu o takiej nazwie.");
         }
     }
+
+    // Metody do obsługi programu
+
+    public static void obslugaWyboruOpcji(){
+        System.out.println("Wybierz opcje:");
+        System.out.println("1 - wyświetl listę produktów");
+        System.out.println("2 - wyszukaj dany produkt");
+        System.out.println("3 - sortuj listę");
+        System.out.println("4 - dodaj produkt");
+        System.out.println("5 - usuń produkt");
+        System.out.println("6 - zakończ");
+    }
+
+    public static void obslugaWyboruKategorii(int wyborKategorii, List<Produkt> listaProduktow){
+        switch(wyborKategorii){
+            case 1:
+                System.out.println("Lista produktów: ");
+                Produkt.wyswietlListeProduktow(listaProduktow);
+                break;
+
+            case 2:
+                System.out.println("Lista przekąsek: ");
+                Przekaska.wyswietlListeProduktow(listaProduktow);
+                break;
+
+            case 3:
+                System.out.println("Lista napoi: ");
+                Napoj.wyswietlListeProduktow(listaProduktow);
+                break;
+
+            case 4:
+                System.out.println("Lista artykułów: ");
+                ArtykulyBiurowe.wyswietlListeProduktow(listaProduktow);
+                break;
+
+            case 5:
+                System.out.println("Lista gazet: ");
+                Gazeta.wyswietlListeProduktow(listaProduktow);
+                break;
+
+            case 6:
+                System.out.println("Lista inne: ");
+                Inne.wyswietlListeProduktow(listaProduktow);
+                break;
+
+            case 7:
+                break;
+
+            default:
+                System.out.println("Błąd - brak takiej opcji.");
+                break;
+        }
+    }
+
+    public static void obsulgaWyboruSortowania(int wyborSortowania, List<Produkt> listaProduktow){
+        switch(wyborSortowania) {
+            case 1:
+                System.out.println("Posortowano po nazwie.");
+                SortujPrzezNazwe sortowaniePoNazwie = new SortujPrzezNazwe();
+                Collections.sort(listaProduktow, sortowaniePoNazwie);
+                for (Produkt produkt : listaProduktow) {
+                    System.out.println(produkt.wypiszSzczegoly());
+                }
+                break;
+
+            case 2:
+                System.out.println("Posortowano po liczbie sztuk.");
+                SortujPrzezIloscSztuk sortowaniePoIlosciSztuk = new SortujPrzezIloscSztuk();
+                Collections.sort(listaProduktow, sortowaniePoIlosciSztuk);
+                for (Produkt produkt : listaProduktow) {
+                    System.out.println(produkt.wypiszSzczegoly());
+                }
+                break;
+
+            case 3:
+                break;
+
+            default:
+                System.out.println("Błąd - brak takiej opcji.");
+                break;
+        }
+    }
+
 }
